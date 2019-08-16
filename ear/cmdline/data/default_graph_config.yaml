@@ -1,0 +1,119 @@
+Graph:
+  format:
+ADMElement:
+  format:
+    shape: 'record'
+    fillcolor: '#cccccc'
+    style: 'filled'
+    fontname: 'Hack'
+AudioProgramme:
+  plot: true
+  plot_attributes_with_none_value: true
+  attributes:
+  - audioProgrammeName
+  # - audioProgrammeLanguage
+  # - start
+  # - end
+  # - maxDuckingDepth
+  reference: {}
+  references:
+    AudioContent: audioContents
+  format:
+    fillcolor: '#f69c6e'
+AudioContent:
+  plot: true
+  plot_attributes_with_none_value: true
+  attributes:
+  - audioContentName
+  # - audioContentLanguage
+  # - loudnessMetadata
+  # - dialogue
+  reference: {}
+  references:
+    AudioObject: audioObjects
+  format:
+    fillcolor: '#9fd178'
+AudioObject:
+  plot: true
+  plot_attributes_with_none_value: true
+  attributes:
+  - audioObjectName
+  # - start
+  # - duration
+  # - importance
+  # - interact
+  # - disableDucking
+  # - dialogue
+  - audioComplementaryObjectIDRef
+  reference: {}
+  references:
+    AudioPackFormat: audioPackFormats
+    AudioObject: audioObjects
+    AudioTrackUID: audioTrackUIDs
+  format:
+    fillcolor: '#4dafdc'
+AudioTrackUID:
+  plot: true
+  plot_attributes_with_none_value: true
+  attributes:
+  - trackIndex
+  - sampleRate
+  - bitDepth
+  reference:
+    AudioPackFormat: audioPackFormat
+    AudioTrackFormat: audioTrackFormat
+  references: {}
+  format:
+    fillcolor: '#cccccc'
+AudioPackFormat:
+  plot: true
+  plot_attributes_with_none_value: true
+  attributes:
+  - audioPackFormatName
+  # - typeDefinition
+  # - typeLabel
+  # - absoluteDistance
+  # - importance
+  reference: {}
+  references:
+    AudioPackFormat: audioPackFormats
+    AudioChannelFormat: audioChannelFormats
+  format:
+    fillcolor: '#f2736d'
+AudioStreamFormat:
+  plot: true
+  plot_attributes_with_none_value: true
+  attributes:
+  - audioStreamFormatName
+  # - formatDefinition
+  # - formatLabel
+  reference:
+    AudioChannelFormat: audioChannelFormat
+    AudioPackFormat: audioPackFormat
+  references: {}
+  format:
+    fillcolor: '#688db2'
+AudioTrackFormat:
+  plot: true
+  plot_attributes_with_none_value: true
+  attributes:
+  - audioTrackFormatName
+  # - formatDefinition
+  # - formatLabel
+  reference:
+    AudioStreamFormat: audioStreamFormat
+  references: {}
+  format:
+    fillcolor: '#bd91e0'
+AudioChannelFormat:
+  plot: true
+  plot_attributes_with_none_value: true
+  attributes:
+  - audioChannelFormatName
+  # - typeDefinition
+  # - typeLabel
+  # - frequency
+  reference: {}
+  references: {}
+  format:
+    fillcolor: '#fef7b5'

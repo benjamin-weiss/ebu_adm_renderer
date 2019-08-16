@@ -23,6 +23,7 @@ setup(
         'enum34~=1.1',
         'six~=1.11',
         'multipledispatch~=0.5',
+        'graphviz'
     ],
 
     extras_require={
@@ -49,12 +50,14 @@ setup(
         "ear.fileio.adm": ["data/*.xml"],
         "ear.fileio.adm.test": ["test_adm_files/*.xml"],
         "ear.fileio.bw64.test": ["test_wav_files/*.wav"],
+        "ear.cmdline": ["data/*.yaml"],
     },
 
     entry_points={
         'console_scripts': [
             'ear-render = ear.cmdline.render_file:main',
-            'ear-utils = ear.cmdline.utils:main'
+            'ear-utils = ear.cmdline.utils:main',
+            'ear-graph = ear.cmdline.graph:main'
         ]
     },
 )
